@@ -163,6 +163,7 @@ declare global {
       portRangeEnd: number;
       portAssignInterval: number;
       port: number;
+      outputBufferSize: number;
     };
     dockerPlatforms?: string[];
   }

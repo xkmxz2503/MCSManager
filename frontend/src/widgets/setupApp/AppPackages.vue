@@ -6,9 +6,7 @@ import { router } from "@/config/router";
 import { useMarketPackages } from "@/hooks/useMarketPackages";
 import { t } from "@/lang/i18n";
 import type { QuickStartPackages } from "@/types";
-import { DatabaseOutlined, DownloadOutlined } from "@ant-design/icons-vue";
-import { Divider, Flex } from "ant-design-vue";
-import Link from "ant-design-vue/es/typography/Link";
+import { DownloadOutlined } from "@ant-design/icons-vue";
 import { onMounted } from "vue";
 
 const props = defineProps<{
@@ -56,31 +54,6 @@ defineExpose({
 </script>
 
 <template>
-  <a-typography-title :level="4" style="margin-bottom: 8px">
-    <DatabaseOutlined />
-    {{ title || t("TXT_CODE_88249aee") }}
-  </a-typography-title>
-  <a-typography-paragraph>
-    <Flex justify="space-between" align="flex-start">
-      <p>
-        <span>{{ t("TXT_CODE_c9ce7427") }}</span>
-        <span v-if="onlyDockerTemplate">
-          <br />
-          {{ t("TXT_CODE_de9b7cc0") }}
-          <br />
-        </span>
-      </p>
-      <p>
-        <Link target="_blank" @click="openEditor">
-          {{ t("TXT_CODE_85c10fde") }}
-        </Link>
-        <Divider type="vertical" />
-        <Link href="https://github.com/MCSManager/Script/issues/77" target="_blank">
-          {{ t("TXT_CODE_709c2db4") }}
-        </Link>
-      </p>
-    </Flex>
-  </a-typography-paragraph>
   <!-- Loading state - shows loading spinner while fetching package data -->
   <a-row v-if="appListLoading" :gutter="[24, 24]" style="height: 100%">
     <a-col :span="24">

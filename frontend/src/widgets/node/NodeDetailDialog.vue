@@ -29,7 +29,8 @@ const DEFAULT_CONFIG = {
   portRangeEnd: 0,
   portAssignInterval: 0,
   daemonPort: 24444,
-  remoteMappings: [] as IPanelOverviewRemoteMappingResponse[]
+  remoteMappings: [] as IPanelOverviewRemoteMappingResponse[],
+  outputBufferSize: 256
 };
 
 const SPEED_RATE_OPTIONS = [
@@ -272,6 +273,21 @@ defineExpose({ openDialog });
                   </a-typography-text>
                 </a-typography-paragraph>
                 <a-input v-model:value="dialog.data.maxDownloadFromUrlFileCount" />
+              </a-form-item>
+            </a-col>
+            <a-col :span="12">
+              <a-form-item :label="t('TXT_CODE_daemon_outputBufferSize')" name="outputBufferSize">
+                <a-typography-paragraph>
+                  <a-typography-text type="secondary">
+                    {{ t("TXT_CODE_daemon_outputBufferSizeInfo") }}
+                  </a-typography-text>
+                </a-typography-paragraph>
+                <a-input-number
+                  v-model:value="dialog.data.outputBufferSize"
+                  :min="16"
+                  :max="4096"
+                  style="width: 100%"
+                />
               </a-form-item>
             </a-col>
           </a-row>

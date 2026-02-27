@@ -53,7 +53,8 @@ routerApp.on("info/overview", async (ctx) => {
       portRangeStart: globalConfiguration.config.allocatablePortRange[0],
       portRangeEnd: globalConfiguration.config.allocatablePortRange[1],
       portAssignInterval: globalConfiguration.config.portAssignInterval,
-      port: globalConfiguration.config.port
+      port: globalConfiguration.config.port,
+      outputBufferSize: globalConfiguration.config.outputBufferSize
     },
     dockerPlatforms
   };
@@ -69,6 +70,7 @@ routerApp.on("info/setting", async (ctx, data) => {
   const portRangeEnd = toNumber(data.portRangeEnd);
   const portAssignInterval = toNumber(data.portAssignInterval);
   const port = toNumber(data.port);
+  const outputBufferSize = toNumber(data.outputBufferSize);
   if (language) {
     logger.warn($t("TXT_CODE_66e32091"), language);
     i18next.changeLanguage(language);
@@ -93,6 +95,9 @@ routerApp.on("info/setting", async (ctx, data) => {
   }
   if (port && port > 0 && port < 65535) {
     globalConfiguration.config.port = port;
+  }
+  if (outputBufferSize != null && outputBufferSize >= 16 && outputBufferSize <= 4096) {
+    globalConfiguration.config.outputBufferSize = outputBufferSize;
   }
   globalConfiguration.store();
   protocol.response(ctx, true);

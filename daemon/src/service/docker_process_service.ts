@@ -147,9 +147,6 @@ export class SetupDockerContainer extends AsyncTask {
       throw new Error($t("TXT_CODE_instance.invalidContainerName", { v: containerName }));
     }
 
-    // Whether to use TTY mode
-    const isTty = instance.config.terminalOption.pty;
-
     const workingDir = dockerConfig.workingDir || undefined;
 
     // capabilities
@@ -159,10 +156,14 @@ export class SetupDockerContainer extends AsyncTask {
     // resolve devices
     // /dev/a, /dev/a|dev/b, /dev/a|/dev/b|rwm, /dev/a||rwm
     const devices = dockerConfig.devices || [];
-    const parsedDevices: { PathOnHost: string; PathInContainer: string; CgroupPermissions: string }[] = [];
+    const parsedDevices: {
+      PathOnHost: string;
+      PathInContainer: string;
+      CgroupPermissions: string;
+    }[] = [];
     for (const item of devices) {
       if (!item) throw new Error($t("TXT_CODE_ae441ea4"));
-      const parts = item.split("|").map(p => p.trim());
+      const parts = item.split("|").map((p) => p.trim());
       if (!parts[0]) throw new Error($t("TXT_CODE_ae441ea4"));
       parsedDevices.push({
         PathOnHost: parts[0],
@@ -264,7 +265,7 @@ export class SetupDockerContainer extends AsyncTask {
       AttachStdin: true,
       AttachStdout: true,
       AttachStderr: true,
-      Tty: isTty,
+      Tty: true, // force PTY mode
       WorkingDir: dockerConfig.changeWorkdir ? workingDir : undefined,
       OpenStdin: true,
       StdinOnce: false,
