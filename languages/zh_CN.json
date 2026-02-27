@@ -3325,7 +3325,7 @@
   "TXT_CODE_INSTANCE_PLAYER_MANAGER_SENT": "指令已发送。",
   "TXT_CODE_INSTANCE_PLAYER_MANAGER_WHITELIST_READ_FAIL": "读取 whitelist.json 失败（可能尚未生成）。",
   "TXT_CODE_INSTANCE_PLAYER_MANAGER_BANNED_READ_FAIL": "读取 banned-players.json 失败（可能尚未生成）。",
-  "TXT_CODE_INSTANCE_PLAYER_MANAGER_EMPTY_PLAYER": "请输入玩家名。"
+  "TXT_CODE_INSTANCE_PLAYER_MANAGER_EMPTY_PLAYER": "请输入玩家名。",
   "TXT_CODE_daemon_outputBufferSize": "日志缓冲区大小",
   "TXT_CODE_daemon_outputBufferSizeInfo": "增大缓冲区可更好的保证终端输出的内容完整性，但内存和性能的压力将会更大，甚至内存泄漏。",
   "TXT_CODE_1bfd647d": "导入整合包/压缩包/开服包",

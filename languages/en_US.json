@@ -3336,7 +3336,7 @@
   "TXT_CODE_INSTANCE_PLAYER_MANAGER_SENT": "Command sent.",
   "TXT_CODE_INSTANCE_PLAYER_MANAGER_WHITELIST_READ_FAIL": "Failed to read whitelist.json (it may not exist yet).",
   "TXT_CODE_INSTANCE_PLAYER_MANAGER_BANNED_READ_FAIL": "Failed to read banned-players.json (it may not exist yet).",
-  "TXT_CODE_INSTANCE_PLAYER_MANAGER_EMPTY_PLAYER": "Please enter a player name."
+  "TXT_CODE_INSTANCE_PLAYER_MANAGER_EMPTY_PLAYER": "Please enter a player name.",
   "TXT_CODE_daemon_outputBufferSize": "Log Buffer Size",
   "TXT_CODE_daemon_outputBufferSizeInfo": "Increasing the buffer can better ensure the completeness of terminal output content, but will put greater pressure on memory and performance, and may even cause memory leaks.",
   "TXT_CODE_1bfd647d": "Import Modpack/Archive/Server Pack",
